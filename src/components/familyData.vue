@@ -15,7 +15,7 @@
 						</v-img>
 						</v-avatar>
 						<p>Cónyuge/conviviente</p>
-						<v-btn round color="indigo" class="abc">Administrador</v-btn>
+						<v-btn @click="insertConyuge()" round color="indigo" class="abc">Administrador</v-btn>
 					</v-flex>
 				</v-layout>
 			</v-container>
@@ -27,13 +27,6 @@
 							large :dataMember = "item"/>
 						
 					</v-timeline>
-						<!-- form edit -->
-									<v-layout v-if = buttonEdit row justify-center>
-										<v-dialog v-model="dialog2" persistent max-width="600px">
-											<formEdit :data="data2" :dr="direccion" :sp="supervivencia" :id="id"></formEdit>
-										</v-dialog>
-									</v-layout>
-									<!-- fin -->
 					 <v-layout row justify-center>
 						<v-dialog v-model="dialogInsert" persistent max-width="600px">
 							<v-btn slot="activator" @click.native="typeParen='hijo'" fab dark color="indigo">
@@ -107,29 +100,10 @@ export default {
 				})				
 			})
 		},
-		view(item,key,ln, s){
-			this.buttonEdit = true
-			this.dialog2 = true
-			this.direccion = ln
-			this.supervivencia = s
-			this.id=key
-			this.data2[0]=item
-			console.log(this.data2)
-		},
-		editar(){
-			this.edit = false
-			this.editDisable=false
-		},
-		save(index, direccion, supervivencia){
-			this.edit = true
-			this.editDisable=true
-			if(direccion !== '' && supervivencia !==''){				
-				firebase.database().ref().child('usuario/0001ED/datos_familiares/'+index).update({
-					direccion: direccion,
-					supervivencia: supervivencia
-				}).then(console.log(index, direccion, supervivencia))
-			}
 			
+		insertConyuge(){
+			this.dialogInsert = true
+			this.typeParen = 'conyugue'
 		},
 		cancel(){
 			this.dialog2 = false

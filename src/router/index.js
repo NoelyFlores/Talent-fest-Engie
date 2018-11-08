@@ -7,6 +7,7 @@ import login from '@/components/login'
 import dpersonal from '@/components/personalData'
 import bankdata from '@/components/bankdata'
 import profData from '@/components/professionalData'
+import formEditFamily from '@/components/form-edit-family'
 Vue.use(Router)
 
 export default new Router({
@@ -29,7 +30,8 @@ export default new Router({
       path: '/dfamily',
       name:'dfamily',
       component: dfamily
-    },{
+    },
+    {
       path: '/login',
       name: 'login',
       component: login
@@ -48,6 +50,11 @@ export default new Router({
       path:'/profData',
       name:'profData',
       component: profData
+    },
+    {
+      path:'/formEditFamily',
+      name:'formEditFamily',
+      component: formEditFamily
     }
   ]
 })
