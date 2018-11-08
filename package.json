@@ -68,5 +68,17 @@
   "engines": {
     "node": ">= 6.0.0",
     "npm": ">= 3.0.0"
-  }
+  },
+  "main": ".postcssrc.js",
+  "repository": {
+    "type": "git",
+
+    "url": "git+https://github.com/ticze/Talent-fest-Engie.git"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ticze/Talent-fest-Engie/issues"
+  },
+  "homepage": "https://github.com/ticze/Talent-fest-Engie#readme"
+
 }

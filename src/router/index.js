@@ -3,6 +3,10 @@ import Router from 'vue-router'
 import home from '@/components/home'
 import prueba from '@/components/pruebapdf'
 import dfamily from '@/components/familyData'
+import login from '@/components/login'
+import dpersonal from '@/components/personalData'
+import bankdata from '@/components/bankdata'
+import profData from '@/components/professionalData'
 Vue.use(Router)
 
 export default new Router({
@@ -18,13 +22,32 @@ export default new Router({
     },
     {
       path: '/prueba',
-      name:'prueba',
+      name: 'prueba',
       component: prueba
     },
     {
       path: '/dfamily',
       name:'dfamily',
       component: dfamily
+    },{
+      path: '/login',
+      name: 'login',
+      component: login
+    },
+    {
+      path: '/dpersonal',
+      name: 'dpersonal',
+      component: dpersonal
+    },
+    {
+      path:'/bankdata',
+      name:'bankdata',
+      component: bankdata
+    },
+    {
+      path:'/profData',
+      name:'profData',
+      component: profData
     }
   ]
 })
