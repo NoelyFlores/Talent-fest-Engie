@@ -10,42 +10,44 @@
     </div>
 </template>
 <script>
-import firebase from 'firebase'
+import firebase from "firebase";
 export default {
-    name:'',
-    data(){
-        return {
-					filepdf: ''
+  name: "",
+  data() {
+    return {
+      filepdf: ""
+    };
+  },
+  mounted() {},
+  created() {},
+  watch: {},
+  computed: {},
+  methods: {
+    uploadpdf() {
+      let storageRef = firebase.storage().ref("test/" + this.filepdf.name);
+      let task = storageRef.put(this.filepdf);
+      task.on(
+        "state_changed",
+        function progress(snapshot) {
+          let percentage =
+            (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+          uploader.value = percentage;
+        },
+        function error(err) {
+          console.log(err);
+        },
+        function complete() {
+          console.log("complete upload");
         }
-    }, 
-	mounted(){},
-	created(){},
-	watch: {},
-	computed:{},
-	methods:{
-      uploadpdf(){
-				let storageRef = firebase.storage().ref('test/'+this.filepdf.name);
-				let task = storageRef.put(this.filepdf)	
-				task.on('state_changed',
-				function progress(snapshot){
-					let percentage = (snapshot.bytesTransferred / snapshot.totalBytes) *100;
-					uploader.value = percentage;
-				},
-				function error(err){
-					console.log(err);
-				},
-				function complete(){
-					console.log('complete upload');
-				}
-				);
-			},
-			fileBtn:function(e){
-					e.preventDefault();
-				const uploader = document.getElementById('uploader');
-				let getFile = e.target.files[0];
-				this.filepdf = getFile				
-			}
+      );
     },
-	components:{}
-}
+    fileBtn: function(e) {
+      e.preventDefault();
+      const uploader = document.getElementById("uploader");
+      let getFile = e.target.files[0];
+      this.filepdf = getFile;
+    }
+  },
+  components: {}
+};
 </script>

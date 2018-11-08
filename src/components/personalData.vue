@@ -1,19 +1,9 @@
 <template>
-    
+
 </template>
 <script>
+import firebase from 'firebase'
 export default {
-    name:'',
-    data(){
-        return {
-
-        }
-    }, 
-	mounted(){},
-	created(){},
-	watch: {},
-	computed:{},
-	methods:{},
-	components:{}
-}
+    name:'dpersonal'
+  }
 </script>
