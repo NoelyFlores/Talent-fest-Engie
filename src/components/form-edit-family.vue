@@ -8,7 +8,7 @@
 																					<v-container grid-list-md>
 																						<v-layout wrap>
 																							<v-flex xs12 sm6 md4>
-																								<v-text-field v-model="numdoc" :hint="numdoc	" persistent-hint disabled></v-text-field>
+																								<v-text-field v-model="numdoc" hint="DNI" persistent-hint disabled></v-text-field>
 																							</v-flex>
 																							<v-flex xs12 sm6 md4>
 																								<v-text-field v-model="parentesco" hint="Parentesco" persistent-hint disabled></v-text-field>
@@ -74,12 +74,25 @@ export default {
 	}, 
 	mounted(){},
 	created(){
+					
+/* 					
+apellido_materno: "Vega",
+					apellido_paterno: "Contreras ",
+					direccion: "av. Las flores 269 ,huancayo ,huancayo",
+					fecha_de_nacimiento: "27/09/2015",
+					lugar_de_nacimiento: "Huancayo",
+					nombre: "Oscar",
+					numero_de_documento: 20123455,
+					parentesco: "Hijo",
+					supervivencia: "si",
+					tipo_de_documento: "dni"
+							 */
 					console.log(this.dataMember)
 		      this.name = this.dataMember.nombre;
 					this.firstName = this.dataMember.apellido_paterno;
 					this.lastName =this.dataMember.apellido_materno;
 					this.direccion =this.dataMember.direccion;
-					this.fecha=this.dataMember.fecha_nacimiento;
+					this.fecha=this.dataMember.fecha_de_nacimiento;
 					this.key = this.dataMember.key;
 					this.lugar = this.dataMember.lugar_de_nacimiento;
 					this.numdoc = this.dataMember.numero_de_documento;

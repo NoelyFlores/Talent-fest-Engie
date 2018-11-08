@@ -20,12 +20,11 @@
 				</v-layout>
 			</v-container>
 			<div class="image-child">
-				  <v-timeline>
+				  <v-timeline class="arbol">
 						<memberFamily v-for="(item, index) in data"
 							:key="index"
 							color="red lighten-2"
-							large :dataMember = "item"/>
-						
+							large :dataMember = "item"/>						
 					</v-timeline>
 					 <v-layout row justify-center>
 						<v-dialog v-model="dialogInsert" persistent max-width="600px">
@@ -91,13 +90,15 @@ export default {
   },
 	computed:{},
 	methods:{
-		connection () {			
+		connection () {
+			const temp = []	
 			let tablesData = firebase.database().ref().child('usuario/0001ED/datos_familiares')		
 			tablesData.on('value', data => {
 				const element = data.val()
 				Object.keys(element).forEach(datas => {
-				this.data.push(element[datas])
-				})				
+				temp.push(element[datas])
+				})
+				this.data=temp		
 			})
 		},
 			
@@ -131,4 +132,23 @@ p {
     justify-content: center;
     border: 2px solid blue;
 }
+	.image-child{
+		    padding: 0px 200px !important
+	}
+	@media(max-width: 720px){
+		.image-child{
+		    padding: 0px 150px !important
+	}
+	}
+	@media(max-width: 600px){
+		.image-child{
+		    padding: 0px 100px !important
+	}
+	}
+	@media(max-width: 50px){
+		.image-child{
+		    padding: 0px 50px !important
+	}
+	}
+
 </style>

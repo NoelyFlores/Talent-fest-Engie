@@ -1,15 +1,14 @@
 <template>
     <v-timeline-item>
-                                <v-card>
-                                <v-card-title>
-                                    <v-spacer></v-spacer>	
-                                    <span>{{name}}</span>			
-                                </v-card-title>
-                                <v-divider></v-divider>
-                                    <v-btn color="primary" @click="view()" dark>ver mas</v-btn>
-                                    
-                            </v-card>
-                        </v-timeline-item>
+      <v-card>
+        <v-card-title>
+          <v-spacer></v-spacer>	
+             <span>{{name}} {{firstName}}</span>			
+              </v-card-title>
+              <v-divider></v-divider>
+              <v-btn color="primary" @click="view()" dark>ver mas</v-btn>
+            </v-card>
+          </v-timeline-item>
 </template>
 <script>
 export default {
@@ -17,7 +16,7 @@ export default {
     props:  ['dataMember'],
     data(){
         return{
-
+			firstName:'',
 			name:'',
 			buttonEdit:false,
 			typeParen:'',
@@ -44,6 +43,7 @@ export default {
     },
     created(){
 this.name = this.dataMember.nombre;
+this.firstName = this.dataMember.apellido_paterno;
     },
     methods:{
       view(){
@@ -53,3 +53,5 @@ this.name = this.dataMember.nombre;
 }
 
 </script>
+	
+
