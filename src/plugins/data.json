@@ -1,0 +1,132 @@
+/*,
+		dataInsert(){
+			return {
+				datos_bancarios: {
+				cts: {
+				banco: "bcp",
+				moneda: "soles "
+				},
+				haberes:{
+				cuenta_ahorros: "193-11216653-0-28",
+				banco: " BCP"
+				}
+				},
+				datos_familiares: {
+					DF0101: {
+					apellido_materno: "Palomino",
+					apellido_paterno: "Truevas",
+					direccion: "av. Las flores 269 ,huancayo ,huancayo",
+					fecha_nacimiento: "14/12/2005",
+					lugar_de_nacimiento: "Huancayo",
+					nombre: "Julia",
+					numero_de_documento: 72321146,
+					parentesco: "hija",
+					supervivencia: "si",
+					tipo_de_documento: "dni"
+					},
+					DF0202: {
+					apellido_materno: "Vega",
+					apellido_paterno: "Contreras ",
+					direccion: "av. Las flores 269 ,huancayo ,huancayo",
+					fecha_de_nacimiento: "27/09/2015",
+					lugar_de_nacimiento: "Huancayo",
+					nombre: "Oscar",
+					numero_de_documento: 20123455,
+					parentesco: "Hijo",
+					supervivencia: "si",
+					tipo_de_documento: "dni"
+					}
+				},
+				datos_personales: {
+				dirección: {
+				block: 6,
+				departamento: "Junin",
+				distrito: "Barranco",
+				dpto_nro: 3,
+				edificio: 4,
+				interior: 2,
+				lote: 3,
+				mz: "a",
+				nombre_de_via: "Rodriguez Soto ",
+				nombre_de_zona: "urbanización",
+				numero: 115,
+				pais: "Peru",
+				provincia: "Huancayo",
+				referencia: "a dos cuadras de la estacion boulevard"
+				},
+				documentos: {
+				autogenerado: 123456789,
+				dni: {
+				documento: "documento",
+				numero: 73449186,
+				tiene: "si"
+				},
+				pasaporte: {
+				documento: "documento ",
+				numero: 1234567,
+				tiene: "si"
+				},
+				ruc: 10734491867,
+				sistema_de_pensiones: {
+				afp: {
+				codigoafp: 123456789,
+				comision: "mixta",
+				fecha_e_afiliación: "12/12/12",
+				nombre: "rimac"
+				}
+				}
+				},
+				identificación: {
+				apellido_materno: "Truevas",
+				apellido_paterno: "Contreras",
+				celular: 934916125,
+				e_mail: "alidacontreras01@gmail.com",
+				estado_civil: {
+				desde: "14/05/2018",
+				documento: "pdfPartida",
+				estado: "soltera"
+				},
+				nombre: "Alida",
+				nombre_preferido: "Ali",
+				sexo: "femenino",
+				telefono: "01 3281204"
+				},
+				nacimiento: {
+				departamento: "Junin",
+				distrito: "Pilcomayo",
+				edad: 26,
+				fecha_de_nacimiento: "01/08/1992",
+				nacionalidad: "documento",
+				pais: "Peru",
+				provincia: "Puancayo"
+				}
+				},
+				datos_profesionales: {
+				datos_de_estudios: "Maestría completa",
+				descripción_de_carrera: {
+				desde: 1997,
+				duracion: "30 meses",
+				hasta: 1999,
+				lugar: "Lima,Perú",
+				nombre_de_institucion: "Pontificia Universidad Católica del Perú",
+				profesión: "Ingeniaría de Software"
+				},
+				descripción_tipo_de_institución: "universidad",
+				idiomas: {
+				idiomas_adicionales: {
+				ingles: {
+				escritura: "avanzado",
+				habla: "avanzado",
+				lectura: "avanzado"
+				}
+				},
+				nativo: "español"
+				},
+				situación_educativa: {
+				año_de_egreso: 2000,
+				estudios_en_perú: "si",
+				régimen_de_estudio: "privada"
+				}
+				}
+				}
+		}*/

@@ -1,30 +1,7 @@
 <template>
     <div>
-			<div class="image-family">
-				<v-img></v-img>
-				<v-img></v-img>
-				<v-img></v-img>
-			</div>
-			<div class="image-child">
-				  <v-timeline>
-						<v-timeline-item
-							v-for="(item, index) in data"
-							:key="index"
-							color="red lighten-2"
-							large
-						>
-							<span slot="opposite"></span>
-							  <v-card>
-								<v-card-title>
-									<span>{{item.nombre}} {{item.apellido_paterno}}</span>
-									<v-spacer></v-spacer>				
-								</v-card-title>
-								<v-divider></v-divider>
-								<!-- form edit -->
-								<v-layout row justify-center>
-									<v-dialog v-model="dialog2" persistent max-width="600px">
-										<v-btn slot="activator" color="primary" @click="view(item.key, item.direccion, item.supervivencia )" dark>ver mas</v-btn>
-										<v-card>
+			<v-card v-for="(item, index) in data"
+							:key="index">
 											<v-card-title>
 												<span class="headline">{{item.nombre}} {{item.apellido_paterno}} {{item.apellido_materno}}</span>
 											</v-card-title>
@@ -67,22 +44,7 @@
 												<v-btn color="blue darken-1" flat @click.native="cancel()">Cerrar</v-btn>
 											</v-card-actions>
 										</v-card>
-									</v-dialog>
-								</v-layout>
-								<!-- fin -->
-							</v-card>
-						</v-timeline-item>
-					</v-timeline>
-					 <v-layout row justify-center>
-						<v-dialog v-model="dialogInsert" persistent max-width="600px">
-							<v-btn slot="activator" @click.native="typeParen='hijo'" fab dark color="indigo">
-							<v-icon dark>add</v-icon></v-btn>
-							<v-card>
-								<formFamily :user="keyUser" :parentesco="typeParen"></formFamily>
-							</v-card>
-						</v-dialog>
-					</v-layout>
-				</div>
+									
 	</div>
 </template>
 <script>
@@ -90,59 +52,29 @@ import firebase from 'firebase'
 import form from '@/components/from-i-family'
 import {EventBus} from '@/plugins/bus.js'
 export default {
-    name:'dataFamily',
+		name:'dataFamily',
+		props:['data', 'dr', 'sp', 'id'],
     data () {
     return {
-			typeParen:'',
-			keyUser:'0001ED',
-			dialogInsert:false,
-			editDisable: true,
-			direccion: '',
-			supervivencia: '',
-			keys: '',
+			datas:this.data,
+			direccion: this.dr,
+			supervivencia: this.sp,
+			keys: this.id,
 			edit: true,
 			dialog2: false,
-			dialog: false,
-      dialog3: true,
       notifications: false,
       sound: true,
-      widgets: false,
-			data: []
+			widgets: false,
+			editDisable: true,
     }
-	},
-	watch: {
-      dialog (val) {
-        if (!val) return
-        setTimeout(() => (this.dialog = false), 4000)
-      }
-    }, 
+	}, 
 	mounted(){},
 	created(){
-		this.connection()
-		EventBus.$on('view-dialog', (data)=>{
-			this.dialogInsert = data
-		})
 	},
-	beforeDestroy(){
-    EventBus.$off()
-  },
-	computed:{},
+	computed:{
+		
+	},
 	methods:{
-		connection () {			
-			let tablesData = firebase.database().ref().child('usuario/0001ED/datos_familiares')		
-			tablesData.on('value', data => {
-				const element = data.val()
-				Object.keys(element).forEach(datas => {
-					console.log(element)
-				this.data.push(element[datas])
-				})				
-			})
-		},
-		view(key,ln, s){
-			this.direccion = ln
-			this.supervivencia = s
-			this.key=key
-		},
 		editar(){
 			this.edit = false
 			this.editDisable=false
@@ -154,14 +86,14 @@ export default {
 				firebase.database().ref().child('usuario/0001ED/datos_familiares/'+index).update({
 					direccion: direccion,
 					supervivencia: supervivencia
-				}).then(console.log(index, direccion, supervivencia))
+				}).then(	EventBus.$emit('view-dialog2', false))
 			}
 			
 		},
 		cancel(){
-			this.dialog2 = false
+			EventBus.$emit('view-dialog2', false)
 			this.edit = true
-			this.editDisable=true
+			this.editDisable=true	
 		}
 	},
 	components:{'formFamily': form}
